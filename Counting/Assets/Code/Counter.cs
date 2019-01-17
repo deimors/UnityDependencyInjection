@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-public class Counter : MonoBehaviour
+namespace Assets.Code
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public class Counter
+	{
+		private int _currentCount;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+		public event Action<int> Incremented;
+
+		public void Increment()
+		{
+			_currentCount++;
+			Incremented?.Invoke(_currentCount);
+		}
+	}
 }
