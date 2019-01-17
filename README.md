@@ -4,7 +4,7 @@ Create a new Unity project with the name `Counting`, and then create a `Code` fo
 
 In the `Code` folder create a new C# Script with the name `Counter`
 
-![Image](https://github.com/deimors/UnityDependencyInjection/blob/master/Images/Create%20Counter%20Model.png)
+![Image](https://deimors.github.io/UnityDependencyInjection/Images/Create%20Counter%20Model.png)
 
 Open `Counter` and rewrite it to be a simple class
 
@@ -58,7 +58,7 @@ Note that the `_currentCount` state of the model isn't exposed publicly; this is
 
 Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment".
 
-![Image](https://github.com/deimors/UnityDependencyInjection/blob/master/Images/Add%20Increment%20Button.png)
+![Image](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Increment%20Button.png)
 
 ## Current Count Text
 
