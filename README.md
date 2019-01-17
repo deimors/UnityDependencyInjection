@@ -56,6 +56,10 @@ Note that the `_currentCount` state of the model isn't exposed publicly; this is
 
 ## Increment Button
 
+Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment".
+
+![Image](https://github.com/deimors/UnityDependencyInjection/blob/master/Images/Add%20Increment%20Button.png)
+
 ## Current Count Text
 
 ## Increment Presenter
