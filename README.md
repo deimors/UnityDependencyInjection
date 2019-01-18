@@ -66,9 +66,42 @@ Add a `UI > Text` to the canvas and name it `Current Counter Text`. Adjust the Y
 
 ![Image](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Current%20Count%20Text.png)
 
-## Increment Presenter
+## Increment Button Presenter
 
-## Current Count Presenter
+Create a new C# Script `IncrementButtonPresenter` and rewrite it to be:
+
+```
+using UnityEngine;
+
+namespace Assets.Code
+{
+	public class IncrementButtonPresenter : MonoBehaviour
+	{
+		
+	}
+}
+```
+
+This presenter class will be the glue that binds together the view (the `Increment Button` created above) and the model (the `Counter` class). To accomplish this, it will need a reference to both objects.
+
+First, the `Increment Button` can be referenced directly by a public property, which will be assigned in the Unity editor to the button.
+
+```
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Assets.Code
+{
+	public class IncrementButtonPresenter : MonoBehaviour
+	{
+		public Button IncrementButton;
+	}
+}
+```
+
+Next, a reference is needed to the `Counter` model, which will be injected into the presenter
+
+## Current Count Text Presenter
 
 ## Zenject Package
 
