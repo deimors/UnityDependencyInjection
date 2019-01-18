@@ -62,6 +62,10 @@ Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that b
 
 ## Current Count Text
 
+Add a `UI > Text` to the canvas and name it `Current Counter Text`. Adjust the Y position to 100 (off the center), the height to 120, the font size to 86 and center the text vertically and horizontally.
+
+![Image](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Current%20Count%20Text.png)
+
 ## Increment Presenter
 
 ## Current Count Presenter
