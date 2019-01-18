@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 955697364}
   - component: {fileID: 955697363}
   - component: {fileID: 955697362}
+  - component: {fileID: 955697365}
   m_Layer: 5
   m_Name: Increment Button
   m_TagString: Untagged
@@ -639,6 +640,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955697360}
   m_CullTransparentMesh: 0
+--- !u!114 &955697365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955697360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca77f280a94304a419051212e0d3a279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IncrementButton: {fileID: 955697362}
 --- !u!1 &979599285
 GameObject:
   m_ObjectHideFlags: 0
