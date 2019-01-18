@@ -4,7 +4,7 @@ Create a new Unity project with the name `Counting`, and then create a `Code` fo
 
 In the `Code` folder create a new C# Script with the name `Counter`
 
-![Image](https://deimors.github.io/UnityDependencyInjection/Images/Create%20Counter%20Model.png)
+![Create Counter Model](https://deimors.github.io/UnityDependencyInjection/Images/Create%20Counter%20Model.png)
 
 Open `Counter` and rewrite it to be a simple class
 
@@ -58,13 +58,13 @@ Note that the `_currentCount` state of the model isn't exposed publicly; this is
 
 Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment".
 
-![Image](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Increment%20Button.png)
+![Add Increment Button](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Increment%20Button.png)
 
 ## Current Count Text
 
 Add a `UI > Text` to the canvas and name it `Current Counter Text`. Adjust the Y position to 100 (off the center), the height to 120, the font size to 86 and center the text vertically and horizontally.
 
-![Image](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Current%20Count%20Text.png)
+![Add Current Count Text](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Current%20Count%20Text.png)
 
 ## Increment Button Presenter
 
@@ -84,7 +84,7 @@ namespace Assets.Code
 
 This presenter class will be the glue that binds together the view (the `Increment Button` created above) and the model (the `Counter` class). To accomplish this, it will need a reference to both objects.
 
-First, the `Increment Button` can be referenced directly by a public property, which will be assigned in the Unity editor to the button.
+Because the presenter is a `MonoBehaviour` which will be attached to the button in the Unity editor, the simplest way to reference the `Increment Button` is to assign it through a public field. While fields assigned in the editor can lead to a brittle dependencies when they cross large distances in the hierarchy, they are relatively stable when assigned to other components of the same `GameObject`.
 
 ```
 using UnityEngine;
@@ -99,7 +99,27 @@ namespace Assets.Code
 }
 ```
 
-Next, a reference is needed to the `Counter` model, which will be injected into the presenter
+We will also need the `Counter` model reference injected into the presenter. Since the presenter is a `MonoBehaviour`, constructor injected isn't possible, and so instead we will make use of method injection in order to both inject the model dependency and initialize the binding between the button and the model.
+
+```
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Assets.Code
+{
+	public class IncrementButtonPresenter : MonoBehaviour
+	{
+		public Button IncrementButton;
+
+		public void Initialize(Counter counter)
+			=> IncrementButton.onClick.AddListener(counter.Increment);
+	}
+}
+```
+
+The `IncrementButtonPresenter` can now be added to the `Increment Button` in the editor, and the `IncrementButton` field can be assigned to the `Button` component.
+
+![Add IncrementButtonPresenter](https://deimors.github.io/UnityDependencyInjection/Images/Add%20IncrementButtonPresenter.png)
 
 ## Current Count Text Presenter
 
