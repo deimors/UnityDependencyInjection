@@ -18,7 +18,8 @@ namespace Assets.Code
 }
 ```
 
-This is going to be our domain model. It's a simple domain model; all it does is increment a counter. The one event we expect out of it is an `Incremented` event containing the current count as an integer.
+This is going to be our domain model. It's a simple domain model; all it does is increment a counter. For now, we'll just expect it to emit an `Incremented` event containing the current count as an integer.
+
 ```
 using System;
 
@@ -31,7 +32,8 @@ namespace Assets.Code
 }
 ```
 
-Next, we'll need a way to trigger this event. Working back from the past tense to the imperative, an `Increment` command can be added to the model.
+We'll now need a way to trigger the `Incremented` event. Working back from the past tense to the imperative, an `Increment` command can be added to the model. The model also needs to define state, so that each time the `Increment` command is called the next integer in sequence is emitted in the event.
+
 ```
 using System;
 
@@ -52,7 +54,7 @@ namespace Assets.Code
 }
 ```
 
-Note that the `_currentCount` state of the model isn't exposed publicly; this is intentional. Instead, any other class interested in the state of the model needs to observe the `Incremented` event stream.
+Note that the `_currentCount` state of the model isn't exposed publicly; this is intentional. Instead, any other class interested in the state of the model needs to observe the `Incremented` events.
 
 ## Increment Button
 
