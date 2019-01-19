@@ -147,4 +147,8 @@ This presenter can now be added to `Current Count Text` in the editor, and the `
 
 ## Zenject Package
 
+Now it's time to use the Zenject dependency injection container to satisfy the `Counter` model reference shared between the `IncrementButtonPresenter` and the `CurrentCountTextPresenter`. First, download and import the Zenject Dependency Injection IOC package from the Unity Asset Store.
+
+![Import Zenject](https://deimors.github.io/UnityDependencyInjection/Images/Import%20Zenject.png)
+
 ## Scene Installer
