@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Assets.Code
 {
@@ -7,6 +8,7 @@ namespace Assets.Code
 	{
 		public Text CurrentCountText;
 
+		[Inject]
 		public void Initialize(Counter counter)
 			=> counter.Incremented += newCount => CurrentCountText.text = newCount.ToString();
 	}
