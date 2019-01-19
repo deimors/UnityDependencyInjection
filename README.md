@@ -186,3 +186,11 @@ namespace Assets.Code
 	}
 }
 ```
+
+Next, add a `Zenject > Scene Context` to the scene.
+
+![Add SceneContext](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Scene%20Context.png)
+
+Then add the `SceneInstaller` component to the newly created `SceneContext`, and add a reference to the installer component to the list of Mono Installers.
+
+![Add SceneInstaller to Scene Context](https://deimors.github.io/UnityDependencyInjection/Images/Add%20SceneInstaller%20to%20Scene%20Context.png)
