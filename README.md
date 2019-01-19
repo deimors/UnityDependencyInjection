@@ -152,3 +152,37 @@ Now it's time to use the Zenject dependency injection container to satisfy the `
 ![Import Zenject](https://deimors.github.io/UnityDependencyInjection/Images/Import%20Zenject.png)
 
 ## Scene Installer
+
+Next, create a new C# Script named `SceneInstaller`. This class will be used to configure the Zenject container by inheriting from the `Zenject.MonoInstaller` base class and overriding the `InstallBindings()` method.
+
+```
+using Zenject;
+
+namespace Assets.Code
+{
+	public class SceneInstaller : MonoInstaller
+	{
+		public override void InstallBindings()
+		{
+			
+		}
+	}
+}
+```
+
+The only binding which we need to be configured in the container is the `Counter` model binding. The same instance of this model needs to be injected into both the `IncrementButtonPresenter` and the `CurrentCountTextPresenter`, and so the model will be bound as a singleton.
+
+```
+using Zenject;
+
+namespace Assets.Code
+{
+	public class SceneInstaller : MonoInstaller
+	{
+		public override void InstallBindings()
+		{
+			Container.Bind<Counter>().AsSingle();
+		}
+	}
+}
+```
