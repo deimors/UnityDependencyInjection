@@ -194,3 +194,41 @@ Next, add a `Zenject > Scene Context` to the scene.
 Then add the `SceneInstaller` component to the newly created `SceneContext`, and add a reference to the installer component to the list of Mono Installers.
 
 ![Add SceneInstaller to Scene Context](https://deimors.github.io/UnityDependencyInjection/Images/Add%20SceneInstaller%20to%20Scene%20Context.png)
+
+Finally, it is necessary to mark the `Initialize(...)` methods in `IncrementButtonPresenter` and `CurrentCountTextPresenter` with the `[Inject]` attribute provided by Zenject. When the scene is started, the `SceneContext` will satisfy the dependencies of all public methods marked with the `[Inject]` attribute in scripts attached to GameObjects in the scene.
+
+```
+using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
+
+namespace Assets.Code
+{
+	public class IncrementButtonPresenter : MonoBehaviour
+	{
+		public Button IncrementButton;
+
+		[Inject]
+		public void Initialize(Counter counter)
+			=> IncrementButton.onClick.AddListener(counter.Increment);
+	}
+}
+```
+
+```
+using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
+
+namespace Assets.Code
+{
+	public class CurrentCountTextPresenter : MonoBehaviour
+	{
+		public Text CurrentCountText;
+
+		[Inject]
+		public void Initialize(Counter counter)
+			=> counter.Incremented += newCount => CurrentCountText.text = newCount.ToString();
+	}
+}
+```
