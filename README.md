@@ -1,3 +1,7 @@
+# The Model Layer
+
+Following with the core concept of [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), the _Model_ will sit at the heart of the system, and will not depend on either the _Presentation_ or _Infrastructure_ layers.
+
 ## Counter Model
 
 Create a new Unity project with the name `Counting`, and then create a `Code` folder in the project's `Assets` folder.
@@ -32,7 +36,7 @@ namespace Assets.Code
 }
 ```
 
-We'll now need a way to trigger the `Incremented` event. Working back from the past tense to the imperative, an `Increment` command can be added to the model. The model also needs to define state, so that each time the `Increment` command is called the next integer in sequence is emitted in the event.
+We'll now need a way to trigger the `Incremented` event. Working back from the past tense to the imperative, an `Increment` command can be added to the model. The model also needs to define state, so that each time the `Increment` command is called the next integer in sequence is emitted with the event.
 
 ```
 using System;
@@ -54,7 +58,11 @@ namespace Assets.Code
 }
 ```
 
-Note that the `_currentCount` state of the model isn't exposed publicly; this is intentional. Instead, any other class interested in the state of the model needs to observe the `Incremented` events.
+Note that the `_currentCount` state of the model isn't exposed publicly; this is intentional. Instead, any other class interested in the state of the model needs to observe the `Incremented` events, thereby allowing the data model to change without affecting the dependents of this model.
+
+# The Presentation Layer
+
+The presentation layer is the closest to the user, and is concerned with handling user input and output. In this system, the presentation layer is comprised both of content defined in the Unity editor and scripts which form the "glue" between Unity and the Model layer (ie: _Presenters_).
 
 ## Increment Button
 
@@ -146,6 +154,8 @@ namespace Assets.Code
 This presenter can now be added to `Current Count Text` in the editor, and the `CurrentCountText` field can be assigned to the `Text` component.
 
 ![Add CurrentCountTextPresenter](https://deimors.github.io/UnityDependencyInjection/Images/Add%20CurrentCountPresenter.png)
+
+# The Infrastructure Layer
 
 ## Zenject Package
 
