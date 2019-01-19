@@ -232,3 +232,12 @@ namespace Assets.Code
 	}
 }
 ```
+
+## Play Scene
+
+Return to the Unity editor and play the scene.
+
+
+![Play Scene](https://deimors.github.io/UnityDependencyInjection/Images/Play%20Scene.png)
+
+Clicking the `Increment Button` fires the `onClick` event, on which the `IncrementButtonPresenter` registered the `Counter.Increment()` method as a listener. The model's `Increment()` method then updates its state and emits the `Incremented` event, which has a listener registered by the `CurrentCountTextPresenter` that updates the current value of the `Current Count Text`.
