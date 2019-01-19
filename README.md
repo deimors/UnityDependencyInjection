@@ -123,6 +123,28 @@ The `IncrementButtonPresenter` can now be added to the `Increment Button` in the
 
 ## Current Count Text Presenter
 
+Similarly, create a `CurrentCountTextPresenter` C# Script with a public property reference to the current count `Text` component, and a method injected with the `Counter` model which updates the text when an `Incremented` event occurs.
+
+```
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Assets.Code
+{
+	public class CurrentCountTextPresenter : MonoBehaviour
+	{
+		public Text CurrentCountText;
+
+		public void Initialize(Counter counter)
+			=> counter.Incremented += newCount => CurrentCountText.text = newCount.ToString();
+	}
+}
+```
+
+This presenter can now be added to `Current Count Text` in the editor, and the `CurrentCountText` field can be assigned to the `Text` component.
+
+![Add CurrentCountTextPresenter](https://deimors.github.io/UnityDependencyInjection/Images/Add%20CurrentCountPresenter.png)
+
 ## Zenject Package
 
 ## Scene Installer
