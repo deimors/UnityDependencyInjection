@@ -1,6 +1,6 @@
 # The Model Layer
 
-Following with the core concept of [Domain Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design), the _Model_ will sit at the heart of the system, and will not depend on either the _Presentation_ or _Infrastructure_ layers.
+The model layer defines the domain of the system as high-level concepts and interactions, independent of how these concepts might be presented to the user, saved to disk, transmitted over a network, etc.. For this system we will use a simple event-based model that accepts commands and emits events, but does not otherwise expose state (ie: no readable or mutable properties, no query methods).
 
 ## Counter Model
 
