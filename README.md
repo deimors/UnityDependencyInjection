@@ -12,7 +12,7 @@ In the `Code` folder create a new C# Script with the name `Counter`
 
 Open `Counter` and rewrite it to be a simple class
 
-```
+```c#
 namespace Assets.Code
 {
 	public class Counter
@@ -24,7 +24,7 @@ namespace Assets.Code
 
 This is going to be our domain model. It's a simple domain model; all it does is increment a counter. For now, we'll just expect it to emit an `Incremented` event containing the current count as an integer.
 
-```
+```c#
 using System;
 
 namespace Assets.Code
@@ -38,7 +38,7 @@ namespace Assets.Code
 
 We'll now need a way to trigger the `Incremented` event. Working back from the past tense to the imperative, an `Increment` command can be added to the model. The model also needs to define state, so that each time the `Increment` command is called the next integer in sequence is emitted with the event.
 
-```
+```c#
 using System;
 
 namespace Assets.Code
@@ -80,7 +80,7 @@ Add a `UI > Text` to the canvas and name it `Current Counter Text`. Adjust the Y
 
 Create a new C# Script `IncrementButtonPresenter` and rewrite it to be:
 
-```
+```c#
 using UnityEngine;
 
 namespace Assets.Code
@@ -96,7 +96,7 @@ This presenter class will be the glue that binds together the view (the `Increme
 
 Because the presenter is a `MonoBehaviour` which will be attached to the button in the Unity editor, the simplest way to reference the `Increment Button` is to assign it through a public field. While fields assigned in the editor can lead to a brittle dependencies when they cross large distances in the hierarchy, they are relatively stable when assigned to other components of the same `GameObject`.
 
-```
+```c#
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,7 +111,7 @@ namespace Assets.Code
 
 We will also need the `Counter` model reference injected into the presenter. Since the presenter is a `MonoBehaviour`, constructor injected isn't possible, and so instead we will make use of method injection in order to both inject the model dependency and initialize the binding between the button and the model.
 
-```
+```c#
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -135,7 +135,7 @@ The `IncrementButtonPresenter` can now be added to the `Increment Button` in the
 
 Similarly, create a `CurrentCountTextPresenter` C# Script with a public property reference to the current count `Text` component, and a method injected with the `Counter` model which updates the text when an `Incremented` event occurs.
 
-```
+```c#
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -167,7 +167,7 @@ Now it's time to use the Zenject dependency injection container to satisfy the `
 
 Next, create a new C# Script named `SceneInstaller`. This class will be used to configure the Zenject container by inheriting from the `Zenject.MonoInstaller` base class and overriding the `InstallBindings()` method.
 
-```
+```c#
 using Zenject;
 
 namespace Assets.Code
@@ -184,7 +184,7 @@ namespace Assets.Code
 
 The only binding which we need to be configured in the container is the `Counter` model binding. The same instance of this model needs to be injected into both the `IncrementButtonPresenter` and the `CurrentCountTextPresenter`, and so the model will be bound as a singleton.
 
-```
+```c#
 using Zenject;
 
 namespace Assets.Code
@@ -209,7 +209,7 @@ Then add the `SceneInstaller` component to the newly created `SceneContext`, and
 
 Finally, it is necessary to mark the `Initialize(...)` methods in `IncrementButtonPresenter` and `CurrentCountTextPresenter` with the `[Inject]` attribute provided by Zenject. When the scene is started, the `SceneContext` will satisfy the dependencies of all public methods marked with the `[Inject]` attribute in scripts attached to GameObjects in the scene.
 
-```
+```c#
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -227,7 +227,7 @@ namespace Assets.Code
 }
 ```
 
-```
+```c#
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
