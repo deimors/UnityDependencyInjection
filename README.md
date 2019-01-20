@@ -262,7 +262,7 @@ Create a new folder named `Model` and move `Counter` into it, then move `Increme
 
 ![Arrange Folders](https://deimors.github.io/UnityDependencyInjection/Images/Arrange%20Folders.png)
 
-## Assembly Definitions
+## Infrastructure Assembly
 
 Under the `Infrastructure` code folder, create an Assembly Definition also named `Infrastructure`.
 
@@ -274,8 +274,14 @@ This assembly definition causes two errors occur for the `SceneInstaller` class 
 
 The addition of the `zenject` reference will uncover a new error, namely that `Infrastructure` assembly does not have a reference to the `Content` model. This is because the code in an assembly does not have access to code not belonging to an assembly, even though code not in an assembly has access to code placed in assemblies (such as when `SceneInstaller` had yet to be placed in an assembly, yet was able to access code from the `zenject` assembly).
 
+## Model Assembly
+
 To solve this error, create a new Assembly Definition named `Model` in the `Model` code folder and reference this new assembly from the `Infrastructure` assembly.
 
 ![Reference Model from Infrastructure](https://deimors.github.io/UnityDependencyInjection/Images/Reference%20Model%20from%20Infrastructure.png)
 
-## Dependencies
+## Presentation Assembly
+
+Finally, create a `Presentation` Assembly Definition under the `Presentation` folder, and add references to both the `Model` and `zenject` assemblies.
+
+![Presentation Assembly Definition](https://deimors.github.io/UnityDependencyInjection/Images/Presentation%20Assembly%20Definition.png)
