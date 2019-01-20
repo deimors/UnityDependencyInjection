@@ -256,6 +256,8 @@ Clicking the `Increment Button` fires the `onClick` event, on which the `Increme
 
 # Architecture
 
+Architecture is concerned with the organization of a system in order to guide the changes that are made to the system over time. Packages are an organizational tool which can be used to draw boundaries and establish directions of dependency within a system. Unity has recently introduced the ability to create Assembly Definitions, which can be used to designate a folder as belonging to a specific assembly (the .Net term for "package"). The code we have created so far will now be separated into different assemblies in order to define the architecture of this system.
+
 ## Arrange Folders
 
 Create a new folder named `Model` and move `Counter` into it, then move `IncrementButtonPresenter` and `CurrentCountPresenter` into a new folder named `Presentation`, and finally move `SceneInstaller` into a new `Infrastructure` folder.
