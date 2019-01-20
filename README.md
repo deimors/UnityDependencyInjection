@@ -260,6 +260,8 @@ Clicking the `Increment Button` fires the `onClick` event, on which the `Increme
 
 Create a new folder named `Model` and move `Counter` into it, then move `IncrementButtonPresenter` and `CurrentCountPresenter` into a new folder named `Presentation`, and finally move `SceneInstaller` into a new `Infrastructure` folder.
 
+![Arrange Folders](https://deimors.github.io/UnityDependencyInjection/Images/Arrange%20Folders.png)
+
 ## Assembly Definitions
 
 ## Dependencies
