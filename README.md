@@ -264,4 +264,10 @@ Create a new folder named `Model` and move `Counter` into it, then move `Increme
 
 ## Assembly Definitions
 
+Under the `Infrastructure` folder, create an Assembly Definition also named `Infrastructure`.
+
+![Infrastructure Assembly Definition](https://deimors.github.io/UnityDependencyInjection/Images/Infrastructure%20Assembly%20Definition.png)
+
+This assembly definition causes two errors occur for the `SceneInstaller` class because the newly defined assembly does not reference the `Zenject` assembly. The `Zenject` Plugin folder also contains an assembly definition, named `zenject`, and so a reference can be added from the `Infrastructure` project to the `zenject` project in order to handle these errors.
+
 ## Dependencies
