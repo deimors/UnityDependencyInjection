@@ -268,6 +268,10 @@ Under the `Infrastructure` folder, create an Assembly Definition also named `Inf
 
 ![Infrastructure Assembly Definition](https://deimors.github.io/UnityDependencyInjection/Images/Infrastructure%20Assembly%20Definition.png)
 
-This assembly definition causes two errors occur for the `SceneInstaller` class because the newly defined assembly does not reference the `Zenject` assembly. The `Zenject` Plugin folder also contains an assembly definition, named `zenject`, and so a reference can be added from the `Infrastructure` project to the `zenject` project in order to handle these errors.
+This assembly definition causes two errors occur for the `SceneInstaller` class because the newly defined assembly does not reference the Zenject assembly. The Zenject plugin folder also contains an assembly definition, named `zenject`, and so a reference can be added from the `Infrastructure` project to the `zenject` project in order to handle these errors.
+
+![Reference Zenject from Infrastructure](https://deimors.github.io/UnityDependencyInjection/Images/Reference%20Zenject%20from%20Infrastructure.png)
+
+The addition of the `zenject` reference will uncover a new error, namely that `Infrastructure` assembly does not have a reference to the `Content` model. This is because the code in an assembly does not have access to code not belonging to an assembly, even though code not in an assembly has access to code placed in assemblies (such as when `SceneInstaller` had yet to be placed in an assembly, yet was able to access code from the `zenject` assembly).
 
 ## Dependencies
