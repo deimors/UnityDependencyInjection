@@ -1,7 +1,8 @@
 {
     "name": "Infrastructure",
     "references": [
-        "Zenject"
+        "Zenject",
+        "Model"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
