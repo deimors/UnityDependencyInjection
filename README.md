@@ -1,3 +1,13 @@
+# Dependency Injection with Zenject
+
+How does your Unity project grow? Does it unfold as beautiful layers of abstraction, each class and function with just the right purpose, each new feature obvious and simple to implement, each addition revealing a greater understanding of the full picture? Or does it lurch along, a tangled mess of cross-referenced GameObjects, methods with ever-growing signatures, MonoBehaviours that need to be wired up "just right", and Manager classes that you just can't seem to stop adding variables to? While I can't guarantee a way to achieve the former, the latter can generally be avoided by implementing the _[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)_ pattern.
+
+Simply put, dependency injection involves a _Container_ object being used to satisfy the dependencies other _Client_ objects, either by passing the dependencies in through the client's constructor, properties, or methods. The simplest method of dependency injection is to manually instantiate and compose together classes in a single class in the system (the _composition root_), however the use of a dependency injection container library often brings benefits, such as automatically detecting and injecting classes according to dependency registration patterns. This is the primary benefit of using Zenject with Unity: it will scan all MonoBehaviours in a scene for properties and methods attributed with `[Inject]` and inject them with the appropriate dependencies.
+
+## Driving from the Domain with Events
+
+
+
 # The Model Layer
 
 The model layer defines the domain of the system as high-level concepts and interactions, independent of how these concepts might be presented to the user, saved to disk, transmitted over a network, etc.. For this system we will use a simple event-based model that accepts commands and emits events, but does not otherwise expose state (ie: no readable or mutable properties, no query methods).
