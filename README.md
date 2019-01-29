@@ -85,7 +85,7 @@ The presentation layer is the closest to the user, and is concerned with handlin
 
 ## Increment Button
 
-Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment".
+Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment", the width to 160, and the height to 30. Also, ensure the Pos X, Y, and Z are all set to 0.
 
 ![Add Increment Button](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Increment%20Button.png)
 
@@ -222,7 +222,7 @@ Next, add a `Zenject > Scene Context` to the scene.
 
 ![Add SceneContext](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Scene%20Context.png)
 
-Then add the `SceneInstaller` component to the newly created `SceneContext`, and add a reference to the installer component to the list of Mono Installers.
+Then add the `SceneInstaller` script to the newly created `SceneContext`, and add a SceneContext reference to the list of Mono Installers.
 
 ![Add SceneInstaller to Scene Context](https://deimors.github.io/UnityDependencyInjection/Images/Add%20SceneInstaller%20to%20Scene%20Context.png)
 
