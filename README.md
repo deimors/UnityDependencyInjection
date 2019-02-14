@@ -1,12 +1,19 @@
-# Dependency Injection with Zenject
+# Dependency Injection in Unity with Zenject
 
-How does your Unity project grow? Does it unfold as beautiful layers of abstraction, each class and function with just the right purpose, each new feature obvious and simple to implement, each addition revealing a greater understanding of the full picture? Or does it lurch along, a tangled mess of cross-referenced GameObjects, methods with ever-growing signatures, MonoBehaviours that need to be wired up "just right", and Manager classes that you just can't seem to stop adding variables to? While I can't guarantee a way to achieve the former, the latter can generally be avoided by implementing the _[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)_ pattern.
+A lack of good dependency management can quickly turn a Unity project into a tangled mess of references between GameObjects, methods with ever-growing signatures, MonoBehaviours that need to be wired up "just right", and Manager classes that have a disconcerting number of static properties. While these simple techniques might work well for small demos and prototypes, they can quickly become a source of pain while evolving your game's architecture and adding new features. The _[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)_ technique is a way of disentangling these balls of mud by separating the responsibility of managing dependencies between objects into a single place: the _Container_. In this example, we'll use the _[Zenject](https://github.com/modesttree/Zenject)_ dependency injection container for _[Unity](https://unity3d.com)_ to wire up a simple interaction between two separate game components.
+
+<!--Another useful technique for disentangling problematic references and enabling easier changes to your game is the _[Dependency Inversion Principle]_-->
+
+<!-- How does your Unity project grow? Does it unfold as beautiful layers of abstraction, each class and function with just the right purpose, each new feature obvious and simple to implement, each addition revealing a greater understanding of the full picture? Or does it lurch along, a tangled mess of cross-referenced GameObjects, methods with ever-growing signatures, MonoBehaviours that need to be wired up "just right", and Manager classes that you just can't seem to stop adding variables to? There are many factors which lead to a messy and difficult to change
+
+While I can't guarantee a way to achieve the former, the latter can generally be avoided by implementing the _[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)_ pattern.
 
 Simply put, dependency injection involves a _Container_ object being used to satisfy the dependencies of other _Client_ objects, either by passing the dependencies in through the client's constructor, properties, or methods. The simplest method of dependency injection is to manually instantiate and compose together classes into an object graph within a single class in the system (the _composition root_), however working within an existing framework can often pose a problem for this approach. Within Unity, the classes of most interest derive from `MonoBehaviour` and are attached to GameObjects in the scene hierarchy, however their instantiation is out of the developer's hands. To overcome this difficulty, the Zenject dependency injection library for Unity provides automatic discovery and injection of properties and methods attributed with `[Inject]` in MonoBehaviours in the scene, and the following is an example of its use.
 
 ## Driving from the Domain with Events
 
 An important benefit of delegating the responsibility of object composition and dependency injection to a specific part of the system is that different layers of abstraction can be easily maintained without classes in either layer having to "own" a reference to the other. This eliminates a common use for "Manager" classes, which are often just convenient places for references to collect. In order to illustrate this benefit, this example will involve a simple architecture which establishes clear boundaries between the model, presentation, and infrastructure concerns. This architecture will be a simple example of _[Domain-driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)_
+-->
 
 # The Model Layer
 
