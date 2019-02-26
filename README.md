@@ -289,7 +289,7 @@ Under the `Infrastructure` code folder, create an Assembly Definition also named
 
 ![Infrastructure Assembly Definition](https://deimors.github.io/UnityDependencyInjection/Images/Infrastructure%20Assembly%20Definition.png)
 
-This assembly definition causes two errors to occur for the `SceneInstaller` class because the newly defined assembly does not reference the Zenject assembly. The Zenject plugin folder also contains an assembly definition, named `zenject`, and in the `Infrastructure` project add an Assembly Definition Reference to the `zenject` project in order to handle these errors. In the current version of Unity, you must select a different file in the Project tree for the Assebmly Definition changes to be applied. If you are prompted to apply the "Unapplied import settings", hit the Apply button.
+This assembly definition causes two errors to occur for the `SceneInstaller` class because the newly defined assembly does not reference the Zenject assembly. The Zenject plugin folder also contains an assembly definition, named `zenject`, so in the `Infrastructure` assembly definition add an Assembly Definition Reference to the `zenject` project in order to handle these errors, then hit the `Apply` button near the bottom of the Inspector.
 
 ![Reference Zenject from Infrastructure](https://deimors.github.io/UnityDependencyInjection/Images/Reference%20Zenject%20from%20Infrastructure.png)
 
