@@ -128,7 +128,7 @@ namespace Assets.Code
 }
 ```
 
-We will also need the `Counter` model reference injected into the presenter. Since the presenter is a `MonoBehaviour`, constructor injected isn't possible, and so instead we will make use of method injection in order to both inject the model dependency and initialize the binding between the button and the model.
+We will also need the `Counter` model reference injected into the presenter. Since the presenter is a `MonoBehaviour`, constructor injection isn't possible, and so instead we will make use of method injection in order to both inject the model dependency and initialize the binding between the button and the model. The body of this method will then just wire up the `Counter` model's `Increment()` method to the `Increment Button`'s `onClick` event.
 
 ```c#
 using UnityEngine;
