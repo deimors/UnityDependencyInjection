@@ -85,7 +85,7 @@ The presentation layer is the closest to the user, and is concerned with handlin
 
 ## Increment Button
 
-Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment".
+Add a `UI > Canvas` to the scene, and a `UI > Button` to the canvas. Name that button `Increment Button` and update the text to read "Increment", the width to 160, and the height to 30. Also, ensure the Pos X, Y, and Z are all set to 0.
 
 ![Add Increment Button](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Increment%20Button.png)
 
@@ -222,7 +222,7 @@ Next, add a `Zenject > Scene Context` to the scene.
 
 ![Add SceneContext](https://deimors.github.io/UnityDependencyInjection/Images/Add%20Scene%20Context.png)
 
-Then add the `SceneInstaller` component to the newly created `SceneContext`, and add a reference to the installer component to the list of Mono Installers.
+Then add the `SceneInstaller` script to the newly created `SceneContext`, and add a SceneContext reference to the list of Mono Installers.
 
 ![Add SceneInstaller to Scene Context](https://deimors.github.io/UnityDependencyInjection/Images/Add%20SceneInstaller%20to%20Scene%20Context.png)
 
@@ -289,11 +289,11 @@ Under the `Infrastructure` code folder, create an Assembly Definition also named
 
 ![Infrastructure Assembly Definition](https://deimors.github.io/UnityDependencyInjection/Images/Infrastructure%20Assembly%20Definition.png)
 
-This assembly definition causes two errors occur for the `SceneInstaller` class because the newly defined assembly does not reference the Zenject assembly. The Zenject plugin folder also contains an assembly definition, named `zenject`, and so a reference can be added from the `Infrastructure` project to the `zenject` project in order to handle these errors.
+This assembly definition causes two errors to occur for the `SceneInstaller` class because the newly defined assembly does not reference the Zenject assembly. The Zenject plugin folder also contains an assembly definition, named `zenject`, so in the `Infrastructure` assembly definition add an Assembly Definition Reference to the `zenject` project in order to handle these errors, then hit the `Apply` button near the bottom of the Inspector.
 
 ![Reference Zenject from Infrastructure](https://deimors.github.io/UnityDependencyInjection/Images/Reference%20Zenject%20from%20Infrastructure.png)
 
-The addition of the `zenject` reference will uncover a new error, namely that `Infrastructure` assembly does not have a reference to the `Content` model. This is because the code in an assembly does not have access to code not belonging to an assembly, even though code not in an assembly has access to code placed in assemblies (such as when `SceneInstaller` had yet to be placed in an assembly, yet was able to access code from the `zenject` assembly).
+The addition of the `zenject` reference will uncover a new error, namely that `Infrastructure` assembly does not have a reference to the `Counter` model. This is because the code in an assembly does not have access to code not belonging to an assembly, even though code not in an assembly has access to code placed in assemblies (such as when `SceneInstaller` had yet to be placed in an assembly, yet was able to access code from the `zenject` assembly).
 
 ## Model Assembly
 
